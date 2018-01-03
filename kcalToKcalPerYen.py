@@ -1,4 +1,3 @@
-# https://qiita.com/deaikei/items/11a10fde5bb47a2cf2c2
 import pandas as pd
 import numpy as np
 import json
@@ -35,8 +34,8 @@ cluster(1, 'cluster 2', 'orange')
 cluster(2, 'cluster 3', 'lightblue')
 
 def plotgenres(plt, genre, color):
-    plt.scatter(    [yen[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],#re.match(r"チキンクリスプ" , title[x]), range(len(labels)))],
-                    [kcal[x] / yen[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],#re.match(r"チキンクリスプ" , title[x]), range(len(labels)))],
+    plt.scatter(    [yen[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],
+                    [kcal[x] / yen[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],
                     s=50,
                     c=color,
                     marker='o',
@@ -49,8 +48,6 @@ plotgenres(plt, "side", "red")
 plotgenres(plt, 'dessert', 'yellow')
 plotgenres(plt, 'soup', 'white')
 
-# for x in filter(lambda x: labels[x] == 2, range(len(labels))):
-#     print(features[x], title[x])
 plt.xlabel("yen", fontsize=20) # x軸のタイトル
 plt.ylabel(r"kcal / yen", fontsize=20) # y軸
 

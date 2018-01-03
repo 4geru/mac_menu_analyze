@@ -1,4 +1,3 @@
-# https://qiita.com/deaikei/items/11a10fde5bb47a2cf2c2
 import pandas as pd
 import numpy as np
 import json
@@ -20,14 +19,6 @@ features = np.array(zipper)
 km = KMeans(n_clusters=3, random_state=10)
 y_km = km.fit_predict(features)
 
-# for x in range(len(title)):
-#     if re.search(r"\(S\)",title[x]) and re.search(r"\(M\)",title[x + 1]):
-#         print(title[x], kcal[x:x+2], yen[x:x+2]) 
-#         # plt.plot(yen[x:x+2], kcal[x:x+2], linestyle="solid", color="red", linewidth=7.0)
-#     if re.search(r"\(M\)",title[x-1]) and re.search(r"\(L\)",title[x]):
-#         print(title[x], kcal[x-1:x+1], yen[x-1:x+1]) 
-#         # plt.plot(yen[x-1:x+1], kcal[x-1:x+1], linestyle="solid", color="blue", linewidth=7.0)
-
 # 分類先となったラベルを取得する
 labels = km.labels_
 
@@ -44,8 +35,8 @@ cluster(1, 'cluster 2', 'orange')
 cluster(2, 'cluster 3', 'lightblue')
 
 def plotgenres(plt, genre, color):
-    plt.scatter(    [kcal[x] / yen[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],#re.match(r"チキンクリスプ" , title[x]), range(len(labels)))],
-                    [kcal[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],#re.match(r"チキンクリスプ" , title[x]), range(len(labels)))],
+    plt.scatter(    [kcal[x] / yen[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],
+                    [kcal[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],
                     s=50,
                     c=color,
                     marker='o',
@@ -58,8 +49,6 @@ plotgenres(plt, "side", "red")
 plotgenres(plt, 'dessert', 'yellow')
 plotgenres(plt, 'soup', 'white')
 
-# for x in filter(lambda x: labels[x] == 2, range(len(labels))):
-#     print(features[x], title[x])
 plt.xlabel("yen", fontsize=20) # x軸のタイトル
 plt.ylabel(r"kcal", fontsize=20) # y軸
 

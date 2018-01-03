@@ -1,4 +1,3 @@
-# https://qiita.com/deaikei/items/11a10fde5bb47a2cf2c2
 import pandas as pd
 import numpy as np
 import json
@@ -44,6 +43,5 @@ plotgenres("morning", "lightblue")
 plotgenres("side", "red")
 plotgenres('dessert', 'yellow')
 plotgenres('soup', 'white')
-# ax.plot(x, y, z, "o", color="red", ms=4, mew=0.5)
 
 plt.savefig("graph3d.png")
