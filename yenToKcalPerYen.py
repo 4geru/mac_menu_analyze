@@ -32,7 +32,7 @@ y_km = km.fit_predict(features)
 labels = km.labels_
 
 def cluster(id, label, color):
-    plt.scatter(    [yen[x] for x in filter(lambda x: labels[x] == id, range(len(labels)))],
+    plt.scatter(    [kcal[x] / yen[x] for x in filter(lambda x: labels[x] == id, range(len(labels)))],
                     [kcal[x] for x in filter(lambda x: labels[x] == id, range(len(labels)))],
                     s=150,
                     c=color,
@@ -44,7 +44,7 @@ cluster(1, 'cluster 2', 'orange')
 cluster(2, 'cluster 3', 'lightblue')
 
 def plotgenres(plt, genre, color):
-    plt.scatter(    [yen[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],#re.match(r"チキンクリスプ" , title[x]), range(len(labels)))],
+    plt.scatter(    [kcal[x] / yen[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],#re.match(r"チキンクリスプ" , title[x]), range(len(labels)))],
                     [kcal[x] for x in filter(lambda x: genre == genres[x] , range(len(genres)))],#re.match(r"チキンクリスプ" , title[x]), range(len(labels)))],
                     s=50,
                     c=color,
@@ -58,13 +58,6 @@ plotgenres(plt, "side", "red")
 plotgenres(plt, 'dessert', 'yellow')
 plotgenres(plt, 'soup', 'white')
 
-plt.scatter(    km.cluster_centers_[:,0],   # km.cluster_centers_には各クラスターのセントロイドの座標が入っている
-                km.cluster_centers_[:,1],
-                s=250,
-                marker='*',
-                c='red',
-                label='centroids')
-
 # for x in filter(lambda x: labels[x] == 2, range(len(labels))):
 #     print(features[x], title[x])
 plt.xlabel("yen", fontsize=20) # x軸のタイトル
@@ -73,4 +66,4 @@ plt.ylabel(r"kcal", fontsize=20) # y軸
 # plt.legend(loc='lower right')
 plt.grid()
 plt.ylim([-50,1000])
-plt.savefig("graph.png")
+plt.savefig("graphy2kp.png")
